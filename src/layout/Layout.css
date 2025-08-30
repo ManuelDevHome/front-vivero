@@ -1,0 +1,57 @@
+/* Layout general */
+.app-container {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #2c3e50;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-title {
+  padding: 16px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom: 1px solid #1a252f;
+  text-align: center;
+}
+
+.menu {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.menu-item:hover {
+  background-color: #34495e;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #ecf0f1;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}

@@ -1,0 +1,107 @@
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #8c5e3c, #cfa77d); /* marrón → beige */
+  color: #fff;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+}
+
+.sidebar-logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.sidebar-logo img {
+  max-height: 100%;
+  max-width: 80%;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.sidebar-menu {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 15px;
+}
+
+/* Botones estilo 3D */
+.sidebar-btn {
+  text-align: center;
+  padding: 12px;
+  background: #d7c78d; /* naranja otoñal */
+  color: rgb(60, 57, 43);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  border: 2px solid #5d4b40;
+  box-shadow: 0 4px #654e40; /* sombra para el efecto 3D */
+  transition: all 0.15s ease;
+  user-select: none;
+  cursor: pointer;
+  display: block;
+}
+
+/* Hover = efecto tecla presionada */
+.sidebar-btn:hover {
+  background: #df894f; /* tono más oscuro */
+  transform: translateY(2px);
+  box-shadow: 0 2px #5b2a06;
+}
+
+/* Active permanente (ruta actual) */
+.sidebar-btn.active {
+  background: #cc6f36;
+  transform: translateY(2px);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.4); /* efecto hundido */
+  border-color: #5b2a06;
+}
+/* --- Ajustes para contenido interno del botón con icono y separador --- */
+.sidebar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  text-decoration: none;             /* ya lo tenías, lo reforzamos */
+}
+
+/* Texto a la izquierda y que empuje el resto a la derecha */
+.btn-text {
+  flex: 1;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Separador vertical antes del icono */
+.btn-sep {
+  flex: 0 0 1px;
+  height: 18px;
+  background: rgba(60, 57, 43, 0.45);  /* tono acorde a tu paleta */
+}
+
+/* Icono a la derecha */
+.btn-icon {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+/* Efecto “tecla” al pasar el mouse (acompaña a tu transform existente) */
+.sidebar-btn:hover .btn-icon {
+  transform: translateY(1px);
+  opacity: 1;
+}
+
+/* Estado activo (presionado) mantiene el icono ligeramente hundido */
+.sidebar-btn.active .btn-icon {
+  transform: translateY(1px);
+}

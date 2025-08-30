@@ -1,0 +1,81 @@
+.tabla-wrapper {
+  max-height: 400px; /* tabla con tamaño fijo */
+  overflow-y: auto;
+  margin-top: 20px;
+  border-radius: 12px;
+  border: 2px solid #a67c52;
+  box-shadow: 0 4px 12px rgba(50, 40, 20, 0.25);
+}
+
+.tabla-productos {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fffdf6;
+  font-size: 0.95rem;
+}
+
+.tabla-productos thead {
+  background: #7a5230; /* marrón bosque */
+  color: #fffdf6;
+  position: sticky;
+  top: 0;
+}
+
+.tabla-productos th,
+.tabla-productos td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #d4b483;
+  text-align: left;
+}
+
+.tabla-productos tr:nth-child(even) {
+  background: #f5f1e6; /* beige */
+}
+
+.acciones {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-accion {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.btn-accion:hover {
+  transform: scale(1.2);
+}
+
+.btn-accion.editar {
+  color: #3c7a3c; /* verde musgo */
+}
+
+.btn-accion.eliminar {
+  color: #a63c2d; /* rojo quemado otoñal */
+}
+
+/* 🔹 Paginación */
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  gap: 12px;
+}
+
+.paginacion button {
+  background: #7a5230;
+  color: #fffdf6;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.paginacion button:disabled {
+  background: #d4b483;
+  cursor: not-allowed;
+}

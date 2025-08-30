@@ -1,0 +1,191 @@
+/* ====== Contenedor Principal ====== */
+.inventario-container {
+  padding: 24px;
+  background: #f5f1e6; /* beige cálido */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(50, 40, 20, 0.25);
+  border: 2px solid #a67c52; /* marrón suave */
+}
+
+.inventario-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #3e2e1c; /* marrón oscuro */
+  border-bottom: 3px solid #d4b483; /* dorado otoñal */
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+/* ====== Botón Agregar ====== */
+.btn-agregar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #3c7a3c; /* verde musgo */
+  color: #fffdf6;
+  font-weight: 600;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  margin-bottom: 16px;
+}
+
+.btn-agregar:hover {
+  background: #2e5c2e;
+  transform: scale(1.05);
+}
+
+.btn-agregar svg {
+  font-size: 1.2rem;
+}
+
+/* ====== Tabla de Productos ====== */
+.tabla-wrapper {
+  max-height: 400px; /* altura fija con scroll */
+  overflow-y: auto;
+  border-radius: 12px;
+  border: 2px solid #a67c52;
+  box-shadow: 0 4px 12px rgba(50, 40, 20, 0.2);
+}
+
+.tabla-productos {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fffdf6;
+  font-size: 0.95rem;
+}
+
+.tabla-productos thead {
+  background: #7a5230; /* marrón bosque */
+  color: #fffdf6;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.tabla-productos th,
+.tabla-productos td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #d4b483;
+  text-align: left;
+}
+
+.tabla-productos tr:nth-child(even) {
+  background: #f5f1e6; /* beige claro */
+}
+
+.tabla-productos tr:hover {
+  background: #e8d9c1; /* highlight cálido */
+}
+
+/* ====== Columna de Acciones ====== */
+.acciones {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-accion {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.btn-accion:hover {
+  transform: scale(1.2);
+}
+
+.btn-accion.editar {
+  color: #3c7a3c; /* verde musgo */
+}
+
+.btn-accion.eliminar {
+  color: #a63c2d; /* rojo quemado otoñal */
+}
+
+/* ====== Paginación ====== */
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 14px;
+  gap: 12px;
+}
+
+.paginacion button {
+  background: #7a5230;
+  color: #fffdf6;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.paginacion button:hover {
+  background: #4b2e1a;
+}
+
+.paginacion button:disabled {
+  background: #d4b483;
+  cursor: not-allowed;
+}
+/* ====== Botón específico para Inventario ====== */
+.btn-agregar-inventario {
+
+  text-align: center;
+  padding: 12px;
+  background: #d7c78d; /* naranja otoñal */
+  color: rgb(60, 57, 43);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  border: 2px solid #5d4b40;
+  box-shadow: 0 4px #654e40; /* sombra para el efecto 3D */
+  transition: all 0.15s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.btn-agregar-inventario:hover {
+  background: #6bb447; /* tono más oscuro */
+  transform: translateY(2px);
+  box-shadow: 0 2px #5b2a06;
+}
+/* ====== Header del inventario ====== */
+.inventario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 1rem;
+}
+
+.inventario-header h2 {
+  flex: 1;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3e2e1c; /* tono tierra */
+}
+
+/* ====== Input búsqueda ====== */
+.input-busqueda {
+  flex: 2;
+  padding: 10px 14px;
+  border: 2px solid #a67b5b; /* marrón otoñal */
+  border-radius: 10px;
+  background: #fffdfa;
+  font-size: 0.95rem;
+  color: #3e2e1c;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-busqueda:focus {
+  outline: none;
+  border-color: #d4b483; /* dorado suave */
+  box-shadow: 0 0 6px rgba(212, 180, 131, 0.6);
+}
