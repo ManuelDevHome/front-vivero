@@ -1,7 +1,7 @@
 // src/api/api.ts
 
 const API_URL = "http://localhost:3000/inventario"; // cambia según tu backend
-
+const API_VENTA ="http://localhost:3000"
 // src/api/api.ts
 export interface Producto {
   id: number;
@@ -17,6 +17,16 @@ export interface ProductoForm {
   precioCompra: string;
   precioVenta: string;
   stock: string;
+}
+export interface VentaItemPayload {
+  productoId: number;
+  cantidad: number;
+}
+
+export interface VentaResponse {
+  id: number;
+  total: number;
+  fecha: string;
 }
 
 
@@ -64,5 +74,22 @@ export async function updateProducto(id: number, producto: Omit<Producto, "id">)
   if (!res.ok) {
     throw new Error("Error al actualizar producto");
   }
+  return res.json();
+}
+
+export async function registrarVenta(
+  items: VentaItemPayload[]
+): Promise<VentaResponse> {
+  const res = await fetch(`${API_VENTA}/venta`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ items }),
+  });
+
+  if (!res.ok) {
+    const msg = await res.text();
+    throw new Error(`Error al registrar venta: ${msg}`);
+  }
+
   return res.json();
 }

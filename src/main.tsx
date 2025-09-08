@@ -6,7 +6,7 @@ import "./index.css";
 
 // Importar las vistas
 import Inventario from "./pages/inventario/Inventario.tsx";
-import Caja from "./pages/caja/Caja.tsx";
+import Caja from "./pages/caja/VentaPage.tsx";
 import Reportes from "./pages/Reportes/Reportes.tsx";
 
 createRoot(document.getElementById("root")!).render(

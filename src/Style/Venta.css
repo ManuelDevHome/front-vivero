@@ -1,0 +1,187 @@
+/* ===== Paleta otoñal =====
+   Marrón oscuro: #6b4f33
+   Naranja suave: #d19c4c
+   Beige: #f8f4ec
+   Crema claro: #fdf7ef
+   Verde seco: #b8a575
+*/
+
+.venta-container {
+  display: flex;
+  height: 80vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fdf7ef; /* crema claro */
+  color: #3a2c1e;
+}
+
+/* ==== Catálogo ==== */
+.catalogo {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.2rem;
+  background: #f8f4ec; /* beige */
+  border-right: 3px solid #d19c4c;
+}
+
+.catalogo-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.catalogo-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #6b4f33;
+  text-align: left;
+}
+
+.buscador {
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #d19c4c;
+  border-radius: 6px;
+  background: #fff8f0;
+  outline: none;
+}
+
+.buscador:focus {
+  border-color: #6b4f33;
+}
+
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}
+
+/* Mensaje sin resultados */
+.sin-resultados {
+  padding: 2rem;
+  text-align: center;
+  color: #b8a575;
+}
+
+/* ==== Ticket ==== */
+.ticket {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fffaf2;
+  padding: 1rem;
+  box-shadow: -3px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.ticket-header h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #6b4f33;
+  margin-bottom: 0.8rem;
+  border-bottom: 2px solid #d19c4c;
+  padding-bottom: 0.4rem;
+}
+
+.ticket-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.ticket-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ticket-item {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee0c8;
+}
+
+.item-info {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.item-controles {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.item-controles button {
+  padding: 2px 6px;
+  border: 1px solid #d19c4c;
+  background: #f8f4ec;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.item-controles button:hover {
+  background: #e9d9b0;
+}
+
+.item-controles .btn-remove {
+  background: #e37b5e;
+  color: white;
+  border: none;
+}
+
+.item-subtotal {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: #6b4f33;
+}
+
+.ticket-footer {
+  padding-top: 0.8rem;
+  border-top: 2px solid #d19c4c;
+}
+
+.ticket-total {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #6b4f33;
+  margin-bottom: 0.6rem;
+}
+
+.btn-cobrar {
+  width: 100%;
+  padding: 0.6rem;
+  background: #d19c4c;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-cobrar:disabled {
+  background: #e0cda0;
+  cursor: not-allowed;
+}
+
+.btn-cobrar:hover:not(:disabled) {
+  background: #b47f2f;
+}
+
+/* Scroll bonito */
+.catalogo-grid::-webkit-scrollbar,
+.ticket-body::-webkit-scrollbar {
+  width: 8px;
+}
+.catalogo-grid::-webkit-scrollbar-thumb,
+.ticket-body::-webkit-scrollbar-thumb {
+  background-color: #d19c4c;
+  border-radius: 4px;
+}
