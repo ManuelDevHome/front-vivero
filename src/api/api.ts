@@ -14,9 +14,9 @@ export interface Producto {
 // Tipo solo para el formulario
 export interface ProductoForm {
   nombre: string;
-  precioCompra: string;
-  precioVenta: string;
-  stock: string;
+  precioCompra: number;
+  precioVenta: number;
+  stock: number;
 }
 export interface VentaItemPayload {
   productoId: number;

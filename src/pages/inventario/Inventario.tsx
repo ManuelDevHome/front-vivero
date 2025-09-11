@@ -50,31 +50,37 @@ function Inventario() {
   };
 
   const handleUpdateProduct = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!editando) return;
+  e.preventDefault();
+  if (!editando) return;
 
-    try {
-      const productoActualizado = await updateProducto(editando.id, editando);
-      setProductos(productos.map((p) => (p.id === editando.id ? productoActualizado : p)));
+  try {
+    const { id, ...productoSinId } = editando; // quitar id
+    // productoSinId es exactamente Omit<Producto, "id">
 
-      Swal.fire({
-        icon: "success",
-        title: "Actualizado",
-        text: `El producto "${productoActualizado.nombre}" fue actualizado correctamente.`,
-        confirmButtonColor: "#8B5E3C",
-      });
+    const productoActualizado = await updateProducto(id, productoSinId);
 
-      setMostrarModal(false);
-      setEditando(null);
-    } catch (err) {
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "No se pudo actualizar el producto. Intenta nuevamente.",
-        confirmButtonColor: "#8B5E3C",
-      });
-    }
-  };
+    setProductos(productos.map((p) => (p.id === id ? productoActualizado : p)));
+
+    Swal.fire({
+      icon: "success",
+      title: "Actualizado",
+      text: `El producto "${productoActualizado.nombre}" fue actualizado correctamente.`,
+      confirmButtonColor: "#8B5E3C",
+    });
+
+    setMostrarModal(false);
+    setEditando(null);
+  } catch (err) {
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "No se pudo actualizar el producto. Intenta nuevamente.",
+      confirmButtonColor: "#8B5E3C",
+    });
+  }
+};
+
+
 
   // 🔹 ELIMINAR PRODUCTO (como ya lo tienes)
   const handleDelete = async (id: number) => {
@@ -111,14 +117,17 @@ function Inventario() {
     });
   };
 
-  // 🔹 INPUT HANDLER (sirve para crear y editar)
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (editando) {
-      setEditando({ ...editando, [e.target.name]: e.target.value } as Producto);
-    } else {
-      setNuevoProducto({ ...nuevoProducto, [e.target.name]: e.target.value });
-    }
-  };
+// 🔹 INPUT HANDLER (sirve para crear y editar)
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const { name, value, type } = e.target;
+  const parsedValue = type === "number" ? Number(value) : value;
+
+  if (editando) {
+    setEditando({ ...editando, [name]: parsedValue } as Producto);
+  } else {
+    setNuevoProducto({ ...nuevoProducto, [name]: parsedValue });
+  }
+};
 
   // 🔹 CREAR PRODUCTO
   const handleAddProduct = async (e: React.FormEvent) => {
