@@ -17,6 +17,10 @@ function Inventario() {
   const [paginaActual, setPaginaActual] = useState(1);
   const productosPorPagina = 5;
 
+  
+  // 🔹 Estado para el buscador
+  const [searchTerm, setSearchTerm] = useState("");
+
   // Modal + Formulario
   const [mostrarModal, setMostrarModal] = useState(false);
   const [editando, setEditando] = useState<Producto | null>(null); // 👈 producto en edición
@@ -42,7 +46,10 @@ function Inventario() {
     };
     fetchData();
   }, []);
-
+ // 🔹 FILTRO de productos según búsqueda
+  const productosFiltrados = productos.filter((p) =>
+    p.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+  );
   // 🔹 EDITAR PRODUCTO
   const handleEdit = (producto: Producto) => {
     setEditando(producto); // lo guardamos en el estado
@@ -167,21 +174,22 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     }
   };
 
-  // Paginación
+  // Paginación ahora se hace sobre productosFiltrados
   const indiceUltimo = paginaActual * productosPorPagina;
   const indicePrimero = indiceUltimo - productosPorPagina;
-  const productosPagina = productos.slice(indicePrimero, indiceUltimo);
-  const totalPaginas = Math.ceil(productos.length / productosPorPagina);
-
+  const productosPagina = productosFiltrados.slice(indicePrimero, indiceUltimo);
+  const totalPaginas = Math.ceil(productosFiltrados.length / productosPorPagina);
   return (
     <div className="inventario-container">
       <div className="inventario-header">
         <h2>Inventario</h2>
 
-        <input
+         <input
           type="text"
           placeholder="🔍 Buscar producto..."
           className="input-busqueda"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)} // 👈 aquí se conecta
         />
 
         <button
